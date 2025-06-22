@@ -16,6 +16,9 @@ function App() {
       .then((json) => setData(json))
       .catch(() => alert("failed to fetch data"));
   }, []);
+   if (data.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = data.slice(startIndex, startIndex + itemsPerPage);
